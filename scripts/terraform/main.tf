@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region = "${var.region}"
 }
 
 resource "aws_db_cluster_snapshot" "database-snapshot" {
