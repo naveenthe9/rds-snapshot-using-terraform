@@ -1,4 +1,10 @@
-
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
 
 resource "aws_db_cluster_snapshot" "development-database-snapshot" {
 db_cluster_identifier = "sttaq-preprod"
