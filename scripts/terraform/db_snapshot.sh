@@ -13,8 +13,11 @@ run() {
 
   echo 'Configure aws...'
   rm -f ~/.aws/credentials
+  echo "$pwd"
+  pwd
   aws configure set aws_access_key_id $AWS_KEY --profile $AWS_PROFILE
   aws configure set aws_secret_access_key $AWS_SECRET --profile $AWS_PROFILE
+  cat ~/.aws/credentials
 
 # Go to the terraform directory
 cd ../terraform/ || exit 1
