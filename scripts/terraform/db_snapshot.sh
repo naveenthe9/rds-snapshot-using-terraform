@@ -31,7 +31,7 @@ TF_VAR_region="$2"
 # Set AWS profile
 export AWS_PROFILE=$1
 
-echo "region is : $TF_VAR_snapshot_date"
+echo "region is : $TF_VAR_region"
 # Save the 5th argument to a file
 echo "$5" > file.txt
 
