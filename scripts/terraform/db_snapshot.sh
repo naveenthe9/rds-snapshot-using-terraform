@@ -25,9 +25,11 @@ cd ../terraform/ || exit 1
 # Print current directory
 
 # Set the snapshot date from the 5th argument
+TF_VAR_profile="$1"
 TF_VAR_region="$2"
 TF_VAR_snapshot_date="$5"
 TF_VAR_db_identifier=$6
+export TF_VAR_profile
 export TF_VAR_snapshot_date
 export TF_VAR_region
 export TF_VAR_db_identifier
