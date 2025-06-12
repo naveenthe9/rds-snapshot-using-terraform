@@ -20,7 +20,6 @@ run() {
 cd ../terraform/ || exit 1
 
 # Print current directory
-echo "Current directory: $(pwd)"
 
 # Set the snapshot date from the 5th argument
 TF_VAR_snapshot_date="$5"
@@ -31,14 +30,15 @@ TF_VAR_region="$2"
 # Set AWS profile
 export AWS_PROFILE=$1
 export TF_VAR_region
+TF_VAR_db_identifier=$6
+export TF_VAR_db_identifier
 echo "region is : $TF_VAR_region"
-# Save the 5th argument to a file
-echo "$5" > file.txt
+echo "region is : $TF_VAR_db_identifier"
 
 # Run Terraform commands
 terraform init
 terraform plan
-#terraform apply --auto-approve
+# terraform apply --auto-approve
 }
 
 run "$@"
