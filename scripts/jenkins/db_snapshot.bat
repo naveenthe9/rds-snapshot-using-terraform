@@ -5,6 +5,4 @@ set AWS_PROFILE=default
 echo %5 > file.txt
 terraform init
 terraform plan
-
-
 terraform apply --auto-approve
