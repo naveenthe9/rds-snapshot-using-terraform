@@ -23,7 +23,7 @@ cd ../terraform/ || exit 1
 echo "Current directory: $(pwd)"
 
 # Set the snapshot date from the 5th argument
-TF_VAR_snapshot_date=$5
+TF_VAR_snapshot_date="$5"
 export TF_VAR_snapshot_date
 echo "Snapshot date: $TF_VAR_snapshot_date"
 
