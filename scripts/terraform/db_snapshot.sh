@@ -27,7 +27,7 @@ TF_VAR_snapshot_date="$5"
 #TF_VAR_snapshot_date="$5"
 export TF_VAR_snapshot_date
 echo "snapshot date: $TF_VAR_snapshot_date"
-
+TF_VAR_region="$2"
 # Set AWS profile
 export AWS_PROFILE=$1
 
