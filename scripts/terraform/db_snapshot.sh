@@ -24,8 +24,9 @@ echo "Current directory: $(pwd)"
 
 # Set the snapshot date from the 5th argument
 TF_VAR_snapshot_date="$5"
+#TF_VAR_snapshot_date="$5"
 export TF_VAR_snapshot_date
-echo "Snapshot date: $TF_VAR_snapshot_date"
+echo "snapshot date: $TF_VAR_snapshot_date"
 
 # Set AWS profile
 export AWS_PROFILE=$1
@@ -36,7 +37,7 @@ echo "$5" > file.txt
 # Run Terraform commands
 terraform init
 terraform plan
-terraform apply --auto-approve
+#terraform apply --auto-approve
 }
 
 run "$@"
