@@ -22,23 +22,19 @@ cd ../terraform/ || exit 1
 # Print current directory
 
 # Set the snapshot date from the 5th argument
-TF_VAR_snapshot_date="$5"
-#TF_VAR_snapshot_date="$5"
-export TF_VAR_snapshot_date
-echo "snapshot date: $TF_VAR_snapshot_date"
 TF_VAR_region="$2"
-# Set AWS profile
-export AWS_PROFILE=$1
-export TF_VAR_region
+TF_VAR_snapshot_date="$5"
 TF_VAR_db_identifier=$6
+export TF_VAR_snapshot_date
+export TF_VAR_region
 export TF_VAR_db_identifier
 echo "region is : $TF_VAR_region"
-echo "region is : $TF_VAR_db_identifier"
+echo "db_identifier is : $TF_VAR_db_identifier"
 
 # Run Terraform commands
 terraform init
 terraform plan
-# terraform apply --auto-approve
+terraform apply --auto-approve
 }
 
 run "$@"
