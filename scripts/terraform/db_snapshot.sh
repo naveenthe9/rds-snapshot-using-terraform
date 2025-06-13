@@ -43,7 +43,7 @@ echo "Checking if snapshot '$SNAPSHOT_ID' exists in region '$REGION'..."
     echo "Snapshot '$SNAPSHOT_ID' does not exist. Skipping deletion."
   fi
 
-# Go to the terraform directory
+# Switch to the terraform directory
 cd ../terraform/ || exit 1
 
 # Print current directory
