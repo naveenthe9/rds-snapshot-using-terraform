@@ -23,6 +23,26 @@ SNAPSHOT_ID="${6}-snapshot-${5}"
 echo "$SNAPSHOT_ID"
 echo "SNAPSHOT_ID is : $SNAPSHOT_ID"
 
+
+#Check if the Snapshot exists
+
+echo "Checking if snapshot '$SNAPSHOT_ID' exists in region '$REGION'..."
+
+  if aws rds describe-db-cluster-snapshots \
+      --region "$REGION" \
+      --db-cluster-snapshot-identifier "$SNAPSHOT_ID" \
+      --profile "$AWS_PROFILE" \
+      --query "DBClusterSnapshots[?DBClusterSnapshotIdentifier=='$SNAPSHOT_ID']" \
+      --output text > /dev/null 2>&1; then
+    echo "Snapshot '$SNAPSHOT_ID' exists. Deleting..."
+    aws rds delete-db-cluster-snapshot \
+      --region "$REGION" \
+      --db-cluster-snapshot-identifier "$SNAPSHOT_ID" \
+      --profile "$AWS_PROFILE"
+  else
+    echo "Snapshot '$SNAPSHOT_ID' does not exist. Skipping deletion."
+  fi
+
 # Go to the terraform directory
 cd ../terraform/ || exit 1
 
