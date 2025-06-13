@@ -21,6 +21,7 @@ run() {
 
 SNAPSHOT_ID="${6}-snapshot-${5}"
 echo "$SNAPSHOT_ID"
+echo "SNAPSHOT_ID is : $SNAPSHOT_ID"
 
 # Go to the terraform directory
 cd ../terraform/ || exit 1
