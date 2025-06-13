@@ -19,6 +19,9 @@ run() {
   aws configure set aws_secret_access_key $AWS_SECRET --profile $AWS_PROFILE
   cat ~/.aws/credentials
 
+SNAPSHOT_ID="${6}-snapshot-${5}"
+echo "$SNAPSHOT_ID"
+
 # Go to the terraform directory
 cd ../terraform/ || exit 1
 
