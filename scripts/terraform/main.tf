@@ -13,5 +13,5 @@ provider "aws" {
 
 resource "aws_db_cluster_snapshot" "database-snapshot" {
 db_cluster_identifier = var.db_identifier
-db_cluster_snapshot_identifier = "development-database-snapshot-${var.snapshot_date}"
+db_cluster_snapshot_identifier = "${var.db_identifier}-snapshot-${var.snapshot_date}"
 }
